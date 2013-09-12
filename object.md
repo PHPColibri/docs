@@ -13,6 +13,7 @@ DBObjects
 - Преречислить поля.
 - Указать коллеции.
 
+
     class CUser extends CObject
     {
         protected	$tableName	='pfx_users';
@@ -22,7 +23,7 @@ DBObjects
         public	$login;
         public	$password;
         public	$email;
-
+        
         protected	$collections=array('users'=>array('CGameUsersCollection',null));
     }
 
