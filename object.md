@@ -51,7 +51,7 @@ DBObjects
 	echo('inserted id: '.$user->id);
 
 Если в базе есть обязательное поле (например birthday), которое не было заполнено `$user->birthday = new DateTime();`,
-будет выбрашено исключение.
+будет выбрашоно исключение.
 
 #### Сохраняем только часть полей
 
@@ -69,3 +69,6 @@ DBObjects
 	...->create();
 	echo('inserted id: '.$user->id);
 
+#### TODO:
+- Есть ли observers/listeners/subscribers ?
+- Заполнение из массива аля ->from_array($array_of values) ?
