@@ -37,7 +37,7 @@ DBObjects
 - save()
 - delete()
 
-### Create()
+### CObject::create()
 
 #### Сохраняем все поля, даже если не были заполнены:
 
@@ -68,4 +68,59 @@ DBObjects
 	// ...
 	...->create();
 	echo('inserted id: '.$user->id);
+
+
+### CObject::load()
+
+`CObject::load` загружает запись из БД и записывает значения полей в свосвта Модели.
+Выбрасывает исключение при ошибке.
+
+#### Загрузка по id
+
+	$user = new CUser($your_db);
+	$user->load(44);
+
+#### Автоматическая загрузка при инициализации
+
+	$user_id = 44;
+	$user = new CUser($your_db, $user_id);
+
+#### Загрузка по условию
+
+	$user = new CUser($your_db);
+	$user->load( array('login'=>'admin','password'=>'admin') );
+
+
+
+### CObject::save()
+
+Эти примеры не загружают запись из БД ( _не делают_ `SELECT`),
+а сразу делают запрос на изменение записи (`UPDATE`):
+
+#### Сохраниение всех свойств Модели.
+
+	$user = new CUser($your_db);
+	$user->login    =    'new login';
+	$user->password =md5('new password');
+	$user->email    =    'user.mail@example.com';
+
+	$user->id=44;
+	$canSave=$user->save();
+
+#### Сохранение выборочных полей
+
+	$user = new CUser($your_db);
+
+	$user->id = 44;
+	$canSave=$user->save( array('password'=>md5('new password')) );
+
+
+
+### CObject::delete()
+
+	$user=new CUser($your_db);
+
+	$user->id=44;
+	$canDelete=$user->delete();
+
 
