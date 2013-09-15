@@ -32,10 +32,11 @@ DBObjects
 Функционал
 ----------
 
-- create()
-- load()
-- save()
-- delete()
+- [CObject::create()](#CObject::create(\))
+- [[CObject::load()](#[CObject::load(\))
+- [[CObject::save()]([CObject::save(\))
+- [[CObject::delete()](#[CObject::delete(\))
+
 
 ### CObject::create()
 
@@ -55,7 +56,7 @@ DBObjects
 
 #### Сохраняем только часть полей
 
-Если есть НЕобязательные поля, можно только обязазательные:
+Если есть НЕобязательные поля, можно сохранить только обязазательные:
 
 	$user=new CUser($your_db);
 	$user->create( array('login'=>'my_login', 'password'=>md5('my_password')) );
