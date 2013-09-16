@@ -25,8 +25,9 @@ Intro
 - Один ко многим: `CObjectSingleCollection`
 - Многие ко многим: `CObjectMultiCollection`
 
-Точнее говоря у коллекции может быть предопределена фильтрация по внешнему ключу,
+Точнее говоря, у коллекции может быть предопределена фильтрация по внешнему ключу,
 что в дальнейшем может использоваться в качестве связи в обектах.
+
 
 
 Создание
@@ -36,6 +37,8 @@ Intro
 - Задать имя таблицы, с которой работаем (`protected $tableName`)
 - Задать имя класса объектов, хранящихся в коллекции (`protected $itemClass`)
 - Optional: Указать предустановленную фильтрацию по внешнему ключу (`protected $FKName`)
+- Optional: Указать таблицу связей, если используется предустановленная фильтрация по FK многие ко многим (`protected $fkTableName`)
+
 
 ### Глобальой коллекции
 
@@ -48,19 +51,40 @@ Intro
 
 Пример:
 
-	class CUsersCollection extends CObjectSingleCollection
+	class CPostsCollection extends CObjectSingleCollection
 	{
-		protected	$tableName	='dbt_users';
-		protected	$itemClass	='CUser';
+		protected	$tableName	='prfx_posts';
+		protected	$itemClass	='CPost';
 		protected	$FKName		=array(null,null);
 	}
 
 
 ### Один ко многим
 
-Создание с предустановленной фильтрацией по внешнему ключу при связи один ко многим:
+Создание с предустановленной фильтрацией по внешнему ключу при связи *один ко многим*:
 - Унаследоваться от `CObjectSingleCollection`
+- также имя таблицы
+- имя класса
+- Указать поле внешнего ключа как первый элемент массива `protected $FKName`
+
+
+Например, коллекция постов пользователя:
+	
+	class CUserPostsCollection extends CObjectSingleCollection
+	{
+		protected	$tableName	= 'prfx_posts';
+		protected	$itemClass	= 'CPost';
+		protected	$FKName		= array('user_id',null);
+	}
 
 
 ### Многие ко многим
 
+	class CUserRolesCollection extends CObjectMultiCollection
+	{
+		protected	$tableName   = 'prfx_roles';
+		protected	$fkTableName = 'prfx_user_roles';
+		protected	$itemClass   = 'CRole';
+		protected	$FKName      = array('user_id','role_id');
+		protected	$FKValue     = array(null,null);
+	}
