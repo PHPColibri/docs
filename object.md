@@ -33,9 +33,9 @@ DBObjects
 ----------
 
 - [CObject::create()](#CObject::create(\))
-- [[CObject::load()](#[CObject::load(\))
-- [[CObject::save()]([CObject::save(\))
-- [[CObject::delete()](#[CObject::delete(\))
+- [CObject::load()](#[CObject::load(\))
+- [CObject::save()]([CObject::save(\))
+- [CObject::delete()](#[CObject::delete(\))
 
 
 ### CObject::create()
