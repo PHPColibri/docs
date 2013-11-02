@@ -3,10 +3,10 @@ DBObjects
 
 - [Создание](#Создание)
 - [Функционал](#Функционал)
-  - [CObject::create()](#CObject::create(\))
-  - [CObject::load()](#[CObject::load(\))
-  - [CObject::save()]([CObject::save(\))
-  - [CObject::delete()](#[CObject::delete(\))
+  - [CObject::create()](#cobjectcreate)
+  - [CObject::load()](#cobjectload)
+  - [CObject::save()](#cobjectsave)
+  - [CObject::delete()](#cobjectdelete)
 
 Создание
 --------
@@ -36,10 +36,10 @@ DBObjects
 Функционал
 ----------
 
-- [CObject::create()](#CObject::create(\))
-- [CObject::load()](#[CObject::load(\))
-- [CObject::save()]([CObject::save(\))
-- [CObject::delete()](#[CObject::delete(\))
+- [CObject::create()](#cobjectcreate)
+- [CObject::load()](#cobjectload)
+- [CObject::save()](#cobjectsave)
+- [CObject::delete()](#cobjectdelete)
 
 
 ### CObject::create()
