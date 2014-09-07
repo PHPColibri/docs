@@ -6,5 +6,5 @@ Colibri "с пол пинка" или Quick Start.
 Установка
 ---------
     
-    composer create-project colibri/application
+    composer create-project colibri/application -s dev
     
