@@ -1,6 +1,12 @@
 Настройки
 =========
 
+- [Использование](#Использование)
+- [Локальные настройки](#Локальные настройки)
+
+Использование
+-------------
+
 Настройки хранятся в папке `application/configs/`.
 Для удобства разнесены по смыслу в разные файлы:
 
@@ -25,11 +31,6 @@ if (Config::application('debug'))  {
 $logFolder = Config::log('folder');
 ```
 
-Если какая-то настройка _не обязательна_, то для указания значения **по умолчанию** укажите его вторым параметром:
-```php
-$encoding = Config::application('encoding', 'utf-8');
-```
-
 Для получения вложенной настройки используется точка:
 ```php
 $mysqlConnectionSettings = Config::database('connection.mysql'); // вернёт массив (как это прописано в database.php)
@@ -37,6 +38,13 @@ $mysqlConnectionSettings = Config::database('connection.mysql'); // вернёт
 или ещё глубже:
 ```php
 $mysqlPassword = Config::database('connection.mysql.password');
+```
+
+### Значение по умолчанию
+
+Если какая-то настройка _не обязательна_, то для указания значения **по умолчанию** укажите его вторым параметром:
+```php
+$encoding = Config::application('encoding', 'utf-8');
 ```
 
 
