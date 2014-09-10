@@ -48,3 +48,33 @@ Colibri "с пол пинка" или Quick Start.
 
 ### Nginx
 
+```
+    server {
+        listen            80;
+        server_name       xteam.dev;
+        root              /srv/web/xteam/application/public;  # whatever is yours
+        index             index.php index.html index.htm;
+
+        client_body_buffer_size 10m;
+
+        error_log /var/log/nginx/xteam.error.log notice;
+        location / {
+            try_files   $uri $uri/ @handler;
+        }
+ 
+        location ~ ^/modules.*(png|jpg|jpeg|gif|css|js)$ {
+                root /srv/web/xteam/application;
+        }
+
+        location @handler {
+            rewrite ^ /index.php?$request_uri;
+        }
+ 
+        location  = /index.php {
+            fastcgi_pass        unix:/var/run/php5-fpm.sock;
+            fastcgi_index       index.php;
+            fastcgi_param       SCRIPT_FILENAME $document_root/index.php;
+            include             fastcgi_params;
+        }
+    }
+```
