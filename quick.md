@@ -3,8 +3,8 @@ Colibri "с пол пинка" или Quick Start.
 
 - [Установка](#Установка)
 - [Настройка Веб-сервера](#Настройка Веб-сервера)
-- - [Apache](#Apache)
-- - [Nginx](#Nginx)
+  - [Apache](#Apache)
+  - [Nginx](#Nginx)
 
 
 Установка
