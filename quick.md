@@ -79,3 +79,18 @@ Colibri "с пол пинка" или Quick Start.
         }
     }
 ```
+
+
+Минимальная настройка
+---------------------
+
+Создайте папку `local` внутри `application/configs/` и скопируйте в неё содержимое
+папки `application/configs/local.example`. Всё!
+
+Ах, да! Нужно поменять только опцию `domain` в `application.php` (в обоих файлах - и в `application/configs/`, и в `application/configs/local/`, и в `application/configs/local.example/`)
+
+> Вы можете пройтись по настройкам и поправить то, что вам требуется.
+> 
+> Подробнее о использовании настроек и о локальных настройках разработчика см. [Настройки](/config.md)
+
+
