@@ -86,10 +86,10 @@ DBObjects
 	$user->load(44);
 ```
 #### Автоматическая загрузка при инициализации
-
+```php
 	$user_id = 44;
 	$user = new CUser($your_db, $user_id);
-
+```
 #### Загрузка по условию
 ```php
 	$user = new CUser($your_db);
