@@ -24,9 +24,9 @@
 ```php
 Memcache::set('key', 'value', $seconds = null);
 ```
-`$seconds === null`  - использовать настройку `memcache.defaultExpiration`;
-`$seconds === 0`     - никогда не 'протухнет';
-`$seconds > 2592000` - Unix timestamp (2592000 - 30 дней). 
+`$seconds === null`  - использовать настройку `memcache.defaultExpiration`;<br>
+`$seconds === 0`     - никогда не 'протухнет';<br>
+`$seconds > 2592000` - Unix timestamp (2592000 - 30 дней).<br>
 
 #### Получение значения
 ```php
