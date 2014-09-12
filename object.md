@@ -18,7 +18,7 @@ DBObjects
 - Указать коллеции (подробнее)
 
 Пример:
-
+```php
 	class CUser extends CObject
 	{
 		protected	$tableName	='pfx_users';
@@ -31,7 +31,7 @@ DBObjects
 		
 		protected	$collections=array('posts'=>array('CUserPostsCollection',null));
 	}
-
+```
 
 Функционал
 ----------
@@ -45,7 +45,7 @@ DBObjects
 ### CObject::create()
 
 #### Сохраняем все поля, даже если не были заполнены:
-
+```php
 	$user=new CUser($your_db);
 	$user->login    =    'my_login';
 	$user->password =md5('my_password');
@@ -54,26 +54,26 @@ DBObjects
 	$user->create(); // при неудаче бросает исключение
 	
 	echo('inserted id: '.$user->id);
-
+```
 Если в базе есть обязательное поле (например birthday), которое не было заполнено `$user->birthday = new DateTime();`,
 будет выброшено исключение.
 
 #### Сохраняем только часть полей
 
 Если есть НЕобязательные поля, можно сохранить только обязазательные:
-
+```php
 	$user=new CUser($your_db);
 	$user->create( array('login'=>'my_login', 'password'=>md5('my_password')) );
-
+```
 #### Id вставленной записи
 
 После создания записи в базе посредством вызова метода `CObject::crete()`
 в поле первичного ключа, которое было указано в `protected $PKFieldName` появляется `id` вставленной записи
-
+```php
 	// ...
 	...->create();
 	echo('inserted id: '.$user->id);
-
+```
 
 ### CObject::load()
 
@@ -81,20 +81,20 @@ DBObjects
 Выбрасывает исключение при ошибке.
 
 #### Загрузка по id
-
+```php
 	$user = new CUser($your_db);
 	$user->load(44);
-
+```
 #### Автоматическая загрузка при инициализации
 
 	$user_id = 44;
 	$user = new CUser($your_db, $user_id);
 
 #### Загрузка по условию
-
+```php
 	$user = new CUser($your_db);
 	$user->load( array('login'=>'admin','password'=>'admin') );
-
+```
 
 
 ### CObject::save()
@@ -103,29 +103,29 @@ DBObjects
 а сразу делают запрос на изменение записи (`UPDATE`):
 
 #### Сохраниение всех свойств Модели.
-
+```php
 	$user = new CUser($your_db);
-	$user->login    =    'new login';
-	$user->password =md5('new password');
-	$user->email    =    'user.mail@example.com';
+	$user->login    =     'new login';
+	$user->password = md5('new password');
+	$user->email    =     'user.mail@example.com';
 
 	$user->id=44;
 	$canSave=$user->save();
-
+```
 #### Сохранение выборочных полей
-
-	$user = new CUser($your_db);
+```php
+	$user = new CUser($your_db); // not loaded
 
 	$user->id = 44;
-	$canSave=$user->save( array('password'=>md5('new password')) );
-
+	$canSave  = $user->save( array('password'=>md5('new password')) );
+```
 
 
 ### CObject::delete()
-
+```php
 	$user=new CUser($your_db);
 
 	$user->id=44;
 	$canDelete=$user->delete();
-
+```
 
