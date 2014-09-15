@@ -3,6 +3,7 @@ Colibri Documentation
 
 - Тур по Colibri
   - [Colibri "с полпинка"](/quick.md)
+  - [Структура каталогов](/folders.md)
   - [Роутинг](/routing.md)
 - Подробнее
   - [Настройки](/config.md)
