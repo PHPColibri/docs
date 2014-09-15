@@ -39,8 +39,8 @@ Application
 ### `public`
 
 Корень вашего виртуального хоста. Здесь располлагаются все файлы, котороые доступны напрямую по
-h_ttp://example.ru`/`path/to/file/in/public/folder  
-`css, js, картики, swf, ...`  
+h_ttp://example.ru`/`path/to/file/in/public/folder :  
+`css-ы, js-ы, картики, swf, ...`  
 и конечно же единая точка запуска приложения  
 `index.php`
 
