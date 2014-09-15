@@ -21,12 +21,12 @@
 Application
 -----------
 
-- `classes`
-- `configs`
-- `logs`
-- `modules`
-- `public`
-- `templates`
+- [`classes`](#classes)
+- [`configs`](#configs)
+- [`logs`](#logs)
+- [`modules`](#modules)
+- [`public`](#public)
+- [`templates`](#templates)
 
 ### `classes`
 
