@@ -44,7 +44,27 @@ class CBlogsViews extends ViewsController
 ------------------------
 
 Каждый метод контроллера представляет собой обработчик action-а.  
-Чтобы "проконтроллировать" запрос на `.../blogs/`
+Чтобы "проконтроллировать" запрос на `http://example.ru/blogs/list` создайте
+метод `list` в классе `CBlogsViews`
+```php
+// file: application/modules/blogs/admin/blogsAdminViews.php
+class CBlogsViews extends ViewsController
+{
+    public function list()
+    {
+        // ...
+    }
+}
+```
+Все сегменты url-а, следующие за названием метода (action-а) до вопроса (`/blogs/show/*44*`), Colibri
+использует как параметры метода-action-а. Чтобы получить эти значения просто
+объявите параметры в вашем методе:
+```php
+    public function show($id)
+    {
+    }
+```
+
 
 Контроллер Представления
 ------------------------
