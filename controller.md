@@ -10,9 +10,10 @@
 ------------
 
 Имя файла:
-    <moduleName>[<DivisionName>]<Type>.php
-Имя класса:
-    С<ModuleName>[<DivisionName>]<Type>.php
+- `moduleName`[`DivisionName`]`Type`.php
+
+Имя класса:  
+- С`ModuleName`[`DivisionName`]`Type`.php
 
 ```php
 // url : /blogs | /blogs/<method>
@@ -92,8 +93,19 @@ class CBlogsViews extends ViewsController
     }
 ```
 
-#### Шаблон и 
-
+#### Шаблон и Layout
+```php
+    $this->backboneTplName
+```
+```php
+    $this->template
+```
+```php
+    $this->useTemplate
+```
+```php
+    $this->useBackbone
+```
 
 Контроллер удалённого вызова
 ----------------------------
