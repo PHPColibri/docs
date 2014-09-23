@@ -8,6 +8,7 @@ Colibri Documentation
 - Подробнее
   - [Настройки](/config.md)
   - [Кеширование](/cache.md)
+  - [Утилиты](/utils.md)
 - Работа с БД
   - [ОбъектБД aka Модель](/object.md)
   - [Коллекции](/collection.md)
