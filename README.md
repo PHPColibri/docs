@@ -7,6 +7,7 @@ Colibri Documentation
   - [Роутинг](/routing.md)
 - Подробнее
   - [Настройки](/config.md)
+  - [Контроллер](/controller.md)
   - [Кеширование](/cache.md)
   - [Утилиты](/utils.md)
 - Работа с БД
