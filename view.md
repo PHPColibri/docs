@@ -11,4 +11,4 @@ application/templates/`backbone[.<division>].php`
 
 Шаблон
 ------
-application/modules[/\<division\>]/`templates/modile[<Division>]Views.php`
+application/modules[/\<division\>]/`templates/module[<Division>]Views.php`
