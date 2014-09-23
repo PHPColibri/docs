@@ -8,6 +8,7 @@ Colibri Documentation
 - Подробнее
   - [Настройки](/config.md)
   - [Контроллер](/controller.md)
+  - [Валидация](/validation.md)
   - [Кеширование](/cache.md)
   - [Утилиты](/utils.md)
 - Работа с БД
