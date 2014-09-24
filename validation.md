@@ -53,6 +53,13 @@ $input = new Validation($_GET);
 $input->extendScope($_POST);
 ```
 
+Проверка
+--------
+```php
+if ($scope->valid()) {
+	
+}
+```
 
 Правила
 -------
