@@ -55,6 +55,35 @@ $input->extendScope($_POST);
 
 Проверка
 --------
+Если вы привыкли работать с исключениями, то просто вызовите метод `validate()`,
+который в случае не вылидных данных выбросит `\Colibri\Validation\Exception`.
+Это исключение содержит все произошедшие ошибки, которые можно получить с помощью
+метода `getErrors()`.
+```php
+use Colibri\Validation\Exception as ValidationException;
+try {
+	$scope = Validation([...]);
+	$scope
+		->requred(...)
+		...
+	
+		->validate(); // this method throws exception !!!
+		
+} catch (ValidationException $e) {
+	var_dump($e->getErrors());
+}
+```
+или
+```php
+$scope
+	->req...
+	...
+	
+	->ifNotValid(function(array $errors) {
+		... // redirect for example
+	})
+```
+или
 ```php
 if ($scope->valid()) {
 	
