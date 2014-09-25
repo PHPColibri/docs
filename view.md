@@ -23,7 +23,7 @@ application/modules[/\<division\>]/`templates/module[<Division>]Views.php`
 ```php
 public function show()
 {
-    $this->template->vars['pageTitle']
+    $this->template->vars['pageTitle'] = 'Добро пожаловать!';
 }
 ```
 
