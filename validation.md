@@ -30,12 +30,20 @@ $validator = new Validation($dataToValidate);
 $validator = new Validation();
 $validator->setScope($dataToValidate);
 ```
+В большинстве случаев это не требуется и более удобный способ создания валидатора и
+задания наюора данных - использовать статический метод `::forScope()`:
+```php
+Validation::forScope($_POST)
+	->req...
+	...
+	
+	->validate();
+```
 Используя метод `setScope()` вы можете использовать валидатор дважды:
 ```php
-$get = new Validation($_GET);
+Validation::forScope($_GET);
 
 // проверим $_GET
-$get
 	->required('id')
 	->validate()
 
@@ -47,11 +55,12 @@ $get
 	->maxLength('body', 65536)
 	->validate();
 ```
-Если вы хотите проверить несколько наборов сразу:
+Если вы хотите проверить несколько наборов сразу просто расширьте ваш набор с помощью `extendScope()`:
 ```php
-$input = new Validation($_GET);
-$input->extendScope($_POST);
+Validation::forScope($_GET)
+	->extendScope($_POST);
 ```
+
 
 Проверка
 --------
@@ -62,8 +71,7 @@ $input->extendScope($_POST);
 ```php
 use Colibri\Validation\Exception as ValidationException;
 try {
-	$scope = Validation([...]);
-	$scope
+	Validation::forScope([...]);
 		->requred(...)
 		...
 	
