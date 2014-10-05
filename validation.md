@@ -65,11 +65,11 @@ Validation::forScope($_GET)
 Проверка
 --------
 Если вы привыкли работать с исключениями, то просто вызовите метод `validate()`,
-который в случае не вылидных данных выбросит `\Colibri\Validation\Exception`.
+который в случае не вылидных данных выбросит `\Colibri\Validation\ValidationException`.
 Это исключение содержит все произошедшие ошибки, которые можно получить с помощью
 метода `getErrors()`.
 ```php
-use Colibri\Validation\Exception as ValidationException;
+use Colibri\Validation\ValidationException;
 try {
 	Validation::forScope([...]);
 		->requred(...)
