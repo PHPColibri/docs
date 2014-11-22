@@ -12,7 +12,7 @@ Colibri "с полпинка" или Quick Start.
 
 Установить Colibri можно с помощью популярного менеджера пакетов [composer](https://getcomposer.org/):
     
-    composer create-project colibri/application -s dev
+    composer create-project colibri/application <your-project-name> --prefer-dist -s dev
 
 > На данный момент нет стабильного релиза, поэтому `-s dev`
 
