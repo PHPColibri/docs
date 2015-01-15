@@ -27,10 +27,10 @@ Colibri "с полпинка" или Quick Start.
 	ServerAlias www.example.dev
 	#ServerAdmin admin-mail@yandex.ru
 
-	DocumentRoot /home/<user>/projects/project-name/application/public
-	ErrorLog     /home/<user>/projects/project-name/application/logs/error.log
-	CustomLog    /home/<user>/projects/project-name/application/logs/access.log common
-	#RewriteLog  /home/<user>/projects/project-name/application/logs/rewrite.log
+	DocumentRoot /home/<user>/projects/<project-name>/application/public
+	ErrorLog     /home/<user>/projects/<project-name>/application/logs/error.log
+	CustomLog    /home/<user>/projects/<project-name>/application/logs/access.log common
+	#RewriteLog  /home/<user>/projects/<project-name>/application/logs/rewrite.log
 	#RewriteLogLevel 0
 
 	#AddDefaultCharset UTF-8
