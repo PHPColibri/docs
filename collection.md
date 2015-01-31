@@ -91,7 +91,7 @@ Intro
   - [1]: столбец, ссылающийся на выбираемый из БД объект
 
 Например, коллекция ролей пользователя:
-
+```php
 	class CUserRolesCollection extends ObjectMultiCollection
 	{
 		protected	$tableName   = 'prfx_roles';
@@ -99,3 +99,4 @@ Intro
 		protected	$fkTableName = 'prfx_user_roles';
 		protected	$FKName      = array('user_id','role_id');
 	}
+```
