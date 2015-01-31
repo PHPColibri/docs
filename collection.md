@@ -12,9 +12,9 @@ Intro
 -----
 
 Коллекция - представление набора записей в таблице БД в удобном для использования виде,
-а именно - в виде массива объектов CObject.
+а именно - в виде массива объектов `Object`.
 
-Класс `aObjectCollection` реализует интерфейсы `ArrayAccess`, `Iterator`, `Countable`, -
+Класс `ObjectCollection` реализует интерфейсы `ArrayAccess`, `Iterator`, `Countable`, -
 т.е. можно использовать в циклах `foreach`, обращаться к элементам как в массиве (`$coll[$i]`),
 применять ф-цию `count()`.
 
@@ -22,8 +22,8 @@ Intro
 первом обращении к ней.
 
 Также коллекции могут обеспечивать связи между объектами БД и деляьтся на два типа:
-- Один ко многим: `CObjectSingleCollection`
-- Многие ко многим: `CObjectMultiCollection`
+- Один ко многим: `ObjectSingleCollection`
+- Многие ко многим: `ObjectMultiCollection`
 
 Точнее говоря, у коллекции может быть предопределена фильтрация по внешнему ключу
 (или через таблицу связей многие ко многим),
@@ -34,7 +34,7 @@ Intro
 Создание
 --------
 
-- Унаследоваться от `CObjectSingleCollection` или `CObjectMultiCollection`
+- Унаследоваться от `ObjectSingleCollection` или `ObjectMultiCollection`
 - Задать имя таблицы, с которой работаем (`protected $tableName`)
 - Задать имя класса объектов, хранящихся в коллекции (`protected $itemClass`)
 - Optional: Указать предустановленную фильтрацию по внешнему ключу (`protected $FKName`)
@@ -46,43 +46,43 @@ Intro
 Глобальная коллекция является общим случаем и предназначена для работы со всей таблицей.
 
 Для создания требуется:
-- Унаследоваться от `CObjectSingleCollection`
+- Унаследоваться от `ObjectSingleCollection`
 - Задать имя таблицы
 - Задать имя класса элементов
 
 Пример:
-
-	class CPostsCollection extends CObjectSingleCollection
+```php
+	class PostsCollection extends ObjectSingleCollection
 	{
 		protected	$tableName	='prfx_posts';
 		protected	$itemClass	='CPost';
 		protected	$FKName		=array(null,null);
 	}
-
+```
 
 ### Один ко многим
 
 Создание с предустановленной фильтрацией по внешнему ключу при связи *один ко многим*:
-- Унаследоваться от `CObjectSingleCollection`
+- Унаследоваться от `ObjectSingleCollection`
 - также имя таблицы
 - имя класса
 - Указать поле внешнего ключа как первый элемент массива `protected $FKName`
 
 
 Например, коллекция постов пользователя:
-	
-	class CUserPostsCollection extends CObjectSingleCollection
+```php
+	class UserPostsCollection extends ObjectSingleCollection
 	{
 		protected	$tableName	= 'prfx_posts';
-		protected	$itemClass	= 'CPost';
-		protected	$FKName		= array('user_id',null);
+		protected	$itemClass	= 'Post';
+		protected	$FKName		= ['user_id',null];
 	}
-
+```
 
 ### Многие ко многим
 
 Создание с предустановленной фильтрацией через таблицу связей *многие ко многим*:
-- от `CObjectMultiCollection`
+- от `ObjectMultiCollection`
 - имя таблицы
 - имя класса
 - имя таблицы связей (`protected $fkTableName`)
@@ -92,10 +92,10 @@ Intro
 
 Например, коллекция ролей пользователя:
 
-	class CUserRolesCollection extends CObjectMultiCollection
+	class CUserRolesCollection extends ObjectMultiCollection
 	{
 		protected	$tableName   = 'prfx_roles';
-		protected	$itemClass   = 'CRole';
+		protected	$itemClass   = 'Role';
 		protected	$fkTableName = 'prfx_user_roles';
 		protected	$FKName      = array('user_id','role_id');
 	}
