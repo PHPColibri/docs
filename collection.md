@@ -73,9 +73,9 @@ Intro
 ```php
 	class UserPostsCollection extends ObjectSingleCollection
 	{
-		protected	$tableName	= 'prfx_posts';
-		protected	$itemClass	= 'Post';
-		protected	$FKName		= ['user_id',null];
+		protected	static $tableName = 'prfx_posts';
+		protected	$itemClass	  = 'Post';
+		protected	$FKName		  = ['user_id',null];
 	}
 ```
 
@@ -94,9 +94,9 @@ Intro
 ```php
 	class CUserRolesCollection extends ObjectMultiCollection
 	{
-		protected	$tableName   = 'prfx_roles';
-		protected	$itemClass   = 'Role';
-		protected	$fkTableName = 'prfx_user_roles';
-		protected	$FKName      = array('user_id','role_id');
+		protected	static $tableName   = 'prfx_roles';
+		protected	$itemClass	    = 'Role';
+		protected	$fkTableName	    = 'prfx_user_roles';
+		protected	$FKName		    = array('user_id','role_id');
 	}
 ```
