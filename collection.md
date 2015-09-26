@@ -54,9 +54,9 @@ Intro
 ```php
 	class PostsCollection extends ObjectSingleCollection
 	{
-		protected	$tableName	='prfx_posts';
-		protected	$itemClass	='CPost';
-		protected	$FKName		=array(null,null);
+		protected	static $tableName = 'prfx_posts';
+		protected	$itemClass	  = 'CPost';
+		protected	$FKName		  = array(null,null);
 	}
 ```
 
