@@ -58,7 +58,7 @@ Colibri "с полпинка" или Quick Start.
         client_body_buffer_size 10m;
 
         #error_log /var/log/nginx/<project-name>.error.log notice;
-        error_log /home/<user>/projects/<project-name>/application/logs/error.log
+        error_log /home/<user>/projects/<project-name>/application/logs/error.log;
         location / {
             try_files   $uri $uri/ @handler;
         }
