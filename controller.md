@@ -7,8 +7,8 @@
   - [Методы](#Методы)
   - [Параметры метода](#Параметры метода)
   - [Параметры запроса](#Параметры запроса)
-  - [Шаблон и Layout](#Шаблон и Layout)
-- [Контроллер удалённого вызова](#Контроллер удалённого вызова)
+  - // [Шаблон и Layout](#Шаблон и Layout)
+- // [Контроллер удалённого вызова](#Контроллер удалённого вызова)
 
 Контроллеры в Colibri делятся на 2 типа:
 - Контроллеры представлений (ViewsController)
@@ -17,23 +17,20 @@
 Наименование
 ------------
 
-Имя файла:
-- `moduleName`[`DivisionName`]`Type`.php
-
-Имя класса:  
-- С`ModuleName`[`DivisionName`]`Type`.php
+Имя файла и класса:
+- `ModuleName`[`DivisionName`]`Type`Controller.php
 
 ```php
 // url : /blogs | /blogs/<method>
-// file: application/modules/blogs/blogsViews.php
-class CBlogsViews extends ViewsController
+// file: application/modules/blogs/primary/BlogsViewsController.php
+class BlogsViewsController extends ViewsController
 {
 }
 ```
 ```php
 // url : /admin/blogs | /admin/blogs/<method>
-// file: application/modules/blogs/admin/blogsAdminViews.php
-class CBlogsViews extends ViewsController
+// file: application/modules/blogs/admin/BlogsAdminViewsController.php
+class BlogsViewsController extends ViewsController
 {
 }
 ```
@@ -56,10 +53,10 @@ class CBlogsViews extends ViewsController
 
 Каждый метод контроллера представляет собой обработчик action-а.  
 Чтобы "проконтроллировать" запрос на `http://example.ru/blogs/list` создайте
-метод `list` в классе `CBlogsViews`
+метод `list` в классе `BlogsViewsController`
 ```php
-// file: application/modules/blogs/admin/blogsAdminViews.php
-class CBlogsViews extends ViewsController
+// file: application/modules/blogs/admin/BlogsAdminViewsController.php
+class BlogsViewsController extends ViewsController
 {
     public function list()
     {
@@ -90,30 +87,12 @@ class CBlogsViews extends ViewsController
 ```php
     public function edit($id)
     {
-        $title = (int)$_GET['title'];
-        // или:
-        $title = filter_input(INPUT_GET, 'title', FILTER_VALIDATE_INT);
-        
+        $title = $_GET['title'];
+
         // $id передался параметром
-		//CBlog::getById(API::$db, $id)->save([
-		//    'title' => $title
-		//]);
+	//Blog::getById($id)->save([
+	//    'title' => $title
+	//]);
     }
 ```
 
-#### Шаблон и Layout
-```php
-    $this->backboneTplName
-```
-```php
-    $this->template
-```
-```php
-    $this->useTemplate
-```
-```php
-    $this->useBackbone
-```
-
-Контроллер удалённого вызова
-----------------------------
