@@ -1,8 +1,8 @@
 Связи
 =====
 
-- [К обектам](#К объектам: Один к одному или Многие к одному)
-- [К коллекциям](#К коллекциям: Один ко многим или Многие ко многим)
+- [Связи к обектам](#К-объектам-Один-к-одному-или-Многие-к-одному)
+- [Связи к коллекциям](#К-коллекциям-Один-ко-многим-или-Многие-ко-многим)
 
 
 К объектам: Один к одному или Многие к одному
@@ -27,29 +27,30 @@
 но мы в голове держим, что в таблице пользователей поле `id` тоже можно рассматривать как
 FK на таблицу профилей.
 
+```php
 	/**
-	 * @property CProfile $profile профиль пользователя
+	 * @property Profile $profile профиль пользователя
 	 */
-	class CUser extends CObject
+	class User extends Object
 	{
 		// ...
 		
 		protected $objects = array(
-			'profile' => array('CProfile', null, 'id')
+			'profile' => array('Profile', null, 'id')
 		);
 	}
 	/**
 	 * @property CUser $user пользователь этого профиля
 	 */
-	class CProfile extends CObject
+	class Profile extends Object
 	{
 		// ...
 		
 		protected $objects = array(
-			'user' => array('CUser', null, 'id')
+			'user' => array('User', null, 'id')
 		);
 	}
-	
+```	
 
 ### многие к одному
 
@@ -59,12 +60,12 @@ FK на таблицу профилей.
 	/**
 	 * @property CUser $user пользователь, который написал этот пост
 	 */
-	class CPost extends CObject
+	class Post extends Object
 	{
 		// ...
 		
 		protected $objects = array(
-			'user' => array('CUser', null, 'user_id')
+			'user' => array('User', null, 'user_id')
 		);
 	}
 
@@ -85,33 +86,33 @@ FK на таблицу профилей.
 ### один ко многим
 
 Например, у пользователя есть набор(коллекция) постов, которые он написал.
-В этом случае нужно использовать коллекцию `CObjectSingleCollection` с
+В этом случае нужно использовать коллекцию `ObjectSingleCollection` с
 [предопределённой фильтрацией по внешнему ключу](collection.md#Один-ко-многим).
 
 	/**
-	 * @property CUserPostsCollection $posts
+	 * @property UserPostsCollection $posts
 	 */
-	class CUser extends CObject
+	class User extends Object
 	{
 		protected $collections = array(
-			'posts' => array('CUserPostsCollection', null),
+			'posts' => array('UserPostsCollection', null),
 		);
 	}
 
 ### многие ко многим
 
 И другой пример, но реадизуется также. У пользователя может быть несколько ролей.
-В этом случае используем коллекцию `CObjectMultiCollection` с
+В этом случае используем коллекцию `ObjectMultiCollection` с
 [предопределённой фильтрацией по связующей таблице многие ко многим](collection.md#Многие-ко-многим)
 По сути ничем не отличается, только ссылается на другого типа коллекцию.
 
 	/**
-	 * @property CUserRolesCollection $roles
+	 * @property UserRolesCollection $roles
 	 */
-	class CUser extends CObject
+	class User extends Object
 	{
 		protected $collections = array(
-			'roles' => array('CUserRolesCollection', null),
+			'roles' => array('UserRolesCollection', null),
 		);
 	}
 
