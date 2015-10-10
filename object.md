@@ -1,6 +1,7 @@
-DBObjects
-=========
+DBObject
+========
 
+- [Введение](#Введение)
 - [Создание](#Создание)
 - [Функционал](#Функционал)
   - [CObject::create()](#cobjectcreate)
@@ -8,13 +9,19 @@ DBObjects
   - [CObject::save()](#cobjectsave)
   - [CObject::delete()](#cobjectdelete)
 
+Введение
+--------
+
+Объектом базы данных (DbObject) в Colibri называется Модель. Это не что иное как представление
+одной записи из таблицы ввиде экземпляра класса, свойства которого являются поля из БД.
+
 Создание
 --------
 
 - Унаследовать от CObject (`extends Object`)
 - Задать название таблицы (`protected static $tableName   = 'table_name';`)
 - Указать первичный ключ  (`protected static $PKFieldName = ['primary_key_name_1', 'primary_key_name_2', ...];`)
-- Преречислить поля
+- Преречислить поля из БД в виде свойств
 - Указать коллеции (подробнее)
 
 Пример:
