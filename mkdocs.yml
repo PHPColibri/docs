@@ -1,4 +1,5 @@
 site_name: Colibri Framework
 pages:
-- Тур по Colibri:
+  - Тур по Colibri:
     - Quick Start: quick.md
+    - Config: config.md
