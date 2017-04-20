@@ -38,8 +38,9 @@ Colibri "с полпинка" или Quick Start.
 
 	<Directory / >
 		Allow from all
+		Require all granted
 		AllowOverride All
-		Options Indexes FollowSymLinks
+		Options -Indexes +FollowSymLinks
 	</Directory>
 </VirtualHost>
 ```
