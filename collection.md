@@ -55,8 +55,8 @@ Intro
 	class PostsCollection extends ObjectSingleCollection
 	{
 		protected	static $tableName = 'prfx_posts';
-		protected	$itemClass		  = 'CPost';
-		protected	$FKName			  = array(null,null);
+		protected	$itemClass        = Post::class;
+		protected	$FKName           = [null,null];
 	}
 ```
 
@@ -74,8 +74,8 @@ Intro
 	class UserPostsCollection extends ObjectSingleCollection
 	{
 		protected	static $tableName = 'prfx_posts';
-		protected	$itemClass		  = 'Post';
-		protected	$FKName			  = ['user_id',null];
+		protected	$itemClass        = Post::class;
+		protected	$FKName           = ['user_id',null];
 	}
 ```
 
@@ -95,8 +95,8 @@ Intro
 	class CUserRolesCollection extends ObjectMultiCollection
 	{
 		protected	static $tableName = 'prfx_roles';
-		protected	$itemClass		  = 'Role';
-		protected	$fkTableName	  = 'prfx_user_roles';
-		protected	$FKName			  = array('user_id','role_id');
+		protected	$itemClass        = Role::class;
+		protected	$fkTableName      = 'prfx_user_roles';
+		protected	$FKName           = ['user_id','role_id'];
 	}
 ```
