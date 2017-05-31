@@ -1,6 +1,2 @@
 site_name: Colibri Framework
 docs_dir: ./
-pages:
-  - Тур по Colibri:
-    - Quick Start: quick.md
-    - Config: config.md
