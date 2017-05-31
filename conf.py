@@ -5,3 +5,4 @@ source_parsers = {
 }
 
 source_suffix = ['.rst', '.md']
+master_doc = 'index'
