@@ -85,7 +85,7 @@ class BlogsViewsController extends ViewsController
         $title = $_GET['title'];
 
         // $id передался параметром
-	//Blog::getById($id)->save([
+	//Blog::getById((int)$id)->save([
 	//    'title' => $title
 	//]);
     }
