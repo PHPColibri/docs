@@ -1,3 +1,0 @@
-Colibri Framework
-=================
-
