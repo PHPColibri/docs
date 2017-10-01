@@ -25,7 +25,7 @@
         plugins: [
             function(hook, vm) {
                 hook.beforeEach(function (html) {
-                    var url = 'https://github.com/PHPColibri/docs/blob/master' + vm.route.file;
+                    var url = 'https://github.com/PHPColibri/docs/blob/master/' + vm.route.file;
                     var editHtml = ':octocat: [Попарвить на GitHub](' + url + ')\n';
                     return html
                         + '\n----\n'
