@@ -23,20 +23,20 @@
 
 #### Запись в кеш
 ```php
-Memcache::set('key', 'value', $seconds = null);
+Cache::set('key', 'value', $seconds = null);
 ```
-`$seconds === null`  - использовать настройку `memcache.defaultExpiration`;  
+`$seconds === null`  - использовать настройку `cache.default-ttl`;  
 `$seconds === 0`     - никогда не 'протухнет';  
 `$seconds > 2592000` - Unix timestamp (2592000 - 30 дней).  
 
 #### Получение значения
 ```php
-Memcache::get('key');
+Cache::get('key', $default);
 ```
 
 #### Удалить
 ```php
-Memcache::delete('key');
+Cache::delete('key');
 ```
 
 #### Взять если есть или положить
@@ -50,7 +50,7 @@ Memcache::delete('key');
 \- \- и после этого использовать.  
 вместо этого вы можете просто использовать метод `::remember()`
 ```php
-Memcache::remember($key, function() {
+Cache::remember($key, function() {
 	return $mySomeNewValue;
 }, $seconds = null);
 ```
