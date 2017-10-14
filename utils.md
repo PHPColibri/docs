@@ -1,11 +1,10 @@
 Utils
 =====
 
-- [String](#String)
-- [RegExp](#RegExp)
-- [Arr](#Arr)
-- [File](#File)
-- [Image](#Image)
+- [String](#string)
+- [Arr](#arr)
+- [File](#file)
+- [Image](#image)
 
 
 String
