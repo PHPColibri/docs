@@ -122,14 +122,14 @@ Model
 	$user->email    =     'user.mail@example.com';
 
 	$user->id = 44;
-	$canSave = $user->save();
+	$user->save();
 ```
 #### Сохранение выборочных полей
 ```php
 	$user = new User(); // not loaded
 
 	$user->id = 44;
-	$canSave  = $user->save( ['password'=>md5('new password')] );
+	$user->save( ['password'=>md5('new password')] );
 ```
 
 
@@ -138,6 +138,6 @@ Model
 	$user=new User();
 
 	$user->id  = 44;
-	$canDelete = $user->delete();
+	$user->delete();
 ```
 
