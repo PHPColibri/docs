@@ -1,13 +1,13 @@
-DBObject
-========
+Model
+=====
 
 - [Введение](#Введение)
 - [Создание](#Создание)
 - [Функционал](#Функционал)
-  - [CObject::create()](#cobjectcreate)
-  - [CObject::load()](#cobjectload)
-  - [CObject::save()](#cobjectsave)
-  - [CObject::delete()](#cobjectdelete)
+  - [Model::create()](#modelcreate)
+  - [Model::load()](#modelload)
+  - [Model::save()](#modelsave)
+  - [Model::delete()](#Modeldelete)
 
 Введение
 --------
@@ -18,7 +18,7 @@ DBObject
 Создание
 --------
 
-- Унаследовать от CObject (`extends Object`)
+- Унаследовать от Model (`extends Model`)
 - Задать название таблицы (`protected static $tableName   = 'table_name';`)
 - Указать первичный ключ  (`protected static $PKFieldName = ['primary_key_name_1', 'primary_key_name_2', ...];`)
 - Преречислить поля из БД в виде свойств
@@ -26,7 +26,7 @@ DBObject
 
 Пример:
 ```php
-	class User extends Object
+	class User extends Model
 	{
 		protected static $tableName   = 'pfx_users';
 		protected static $PKFieldName = array('id');
@@ -43,13 +43,13 @@ DBObject
 Функционал
 ----------
 
-- [Object::create()](#objectcreate)
-- [Object::load()](#objectload)
-- [Object::save()](#objectsave)
-- [Object::delete()](#objectdelete)
+- [Model::create()](#modelcreate)
+- [Model::load()](#modelload)
+- [Model::save()](#modeltsave)
+- [Model::delete()](#modeldelete)
 
 
-### Object::create()
+### Model::create()
 
 #### Сохраняем все поля, даже если не были заполнены:
 ```php
@@ -74,7 +74,7 @@ DBObject
 ```
 #### Id вставленной записи
 
-После создания записи в базе посредством вызова метода `Object::crete()`
+После создания записи в базе посредством вызова метода `Model::crete()`
 в поле первичного ключа, которое было указано в `protected static $PKFieldName` появляется `id` вставленной записи
 ```php
 	// ...
@@ -82,9 +82,9 @@ DBObject
 	echo('inserted id: '.$user->id);
 ```
 
-### Object::load()
+### Model::load()
 
-`Object::load` загружает запись из БД и записывает значения полей в свосвта Модели.
+`Model::load` загружает запись из БД и записывает значения полей в свосвта Модели.
 Выбрасывает исключение при ошибке.
 
 #### Загрузка по id
@@ -109,7 +109,7 @@ DBObject
 ```
 
 
-### Object::save()
+### Model::save()
 
 Эти примеры не загружают запись из БД ( _не делают_ `SELECT`),
 а сразу делают запрос на изменение записи (`UPDATE`):
@@ -133,7 +133,7 @@ DBObject
 ```
 
 
-### Object::delete()
+### Model::delete()
 ```php
 	$user=new User();
 

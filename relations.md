@@ -31,7 +31,7 @@ FK на таблицу профилей.
 	/**
 	 * @property Profile $profile профиль пользователя
 	 */
-	class User extends Object
+	class User extends Model
 	{
 		// ...
 		
@@ -42,7 +42,7 @@ FK на таблицу профилей.
 	/**
 	 * @property CUser $user пользователь этого профиля
 	 */
-	class Profile extends Object
+	class Profile extends Model
 	{
 		// ...
 		
@@ -61,7 +61,7 @@ FK на таблицу профилей.
 	/**
 	 * @property CUser $user пользователь, который написал этот пост
 	 */
-	class Post extends Object
+	class Post extends Model
 	{
 		// ...
 		
@@ -87,14 +87,14 @@ FK на таблицу профилей.
 ### один ко многим
 
 Например, у пользователя есть набор(коллекция) постов, которые он написал.
-В этом случае нужно использовать коллекцию `ObjectSingleCollection` с
+В этом случае нужно использовать коллекцию `ModelSingleCollection` с
 [предопределённой фильтрацией по внешнему ключу](collection.md#Один-ко-многим).
 
 ```php
 	/**
 	 * @property UserPostsCollection $posts
 	 */
-	class User extends Object
+	class User extends Model
 	{
 		protected $collections = array(
 			'posts' => array('UserPostsCollection', null),
@@ -105,7 +105,7 @@ FK на таблицу профилей.
 ### многие ко многим
 
 И другой пример, но реадизуется также. У пользователя может быть несколько ролей.
-В этом случае используем коллекцию `ObjectMultiCollection` с
+В этом случае используем коллекцию `ModelMultiCollection` с
 [предопределённой фильтрацией по связующей таблице многие ко многим](collection.md#Многие-ко-многим)
 По сути ничем не отличается, только ссылается на другого типа коллекцию.
 
@@ -113,7 +113,7 @@ FK на таблицу профилей.
 	/**
 	 * @property UserRolesCollection $roles
 	 */
-	class User extends Object
+	class User extends Model
 	{
 		protected $collections = array(
 			'roles' => array('UserRolesCollection', null),

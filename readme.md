@@ -14,6 +14,6 @@ Colibri Documentation
   - [Кеширование](/cache.md)
   - [Утилиты](/utils.md)
 - Работа с БД
-  - [Модель](/object.md)
+  - [Модель](/model.md)
   - [Коллекции](/collection.md)
   - [Связи](/relations.md)
