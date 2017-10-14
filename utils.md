@@ -141,22 +141,168 @@ String
     Str::('some2string')   // true
 ```
 
-RegExp
-------
-```php
-    RegExp::isDate;
-    RegExp::isEmail;
-```
 
 Arr
 ---
+
+#### `::overwrite()`
+> ```php
+> Arr::overwrite(array $array, array $with)
+> ```
+
+Рекурсивно перезаписывает значения массива.
 ```php
-    Arr::overwrite($array, $with)
+    $array = [
+        'key1'   => 'value1',
+        'key2'   => 'value2',
+        'nested' => [
+            'n1' => 123,
+            'n2' => 'nested value 2',
+        ],
+    ];
+    $with = [
+        'key2'   => 'new value for key2',
+        'nested' => [
+            'n2' => 'new value for nested.n2',
+        ],
+    ];
+
+    $result = Arr::overwrite($array, $with);
+
+    // После чего в `$result` будет следующее:
+    $result == [
+        'key1' => 'value1',
+        'key2' => 'new value for key2',
+        'nested' => [
+            'n1' => 123,
+            'n2' => 'new value for nested.n2',
+        ],
+    ]
 ```
-#### Через точку
+
+#### `::get()`
+> ```php
+> Arr::get(array $array, string $dottedKey, mixed $default = null)
+> ```
+
+Достаёт значение из массива, используя нотацию "через точку" (вложенные ключи записываются через точку).  
+Если ключ отсутствует, возвращает `$default` значение.
 ```php
-    Arr::get(array $array, $key, $default = null)
+    $array = [
+        'key1'   => 'value1',
+        'key2'   => 'value2',
+        'nested' => [
+            'n1' => 123,
+            'n2' => 'nested value 2',
+        ],
+    ];
+
+    Arr::get($array, 'key2')       // 'value2'
+    Arr::get($array, 'key3')       // null
+    Arr::get($array, 'nested.n1')  // 123
+    Arr::get($array, 'nested.n2')  // 'nested value 2'
 ```
+
+
+#### `::set()`
+> ```php
+> Arr::set(array $array, string $dottedKey, mixed $value)
+> ```
+
+Задаёт значение элемента массива, используя нотацию "через точку" (вложенные ключи записываются через точку).  
+Если ключ отсутствует, то элемент с соответствующим ключом будет создан.
+```php
+    $array = [
+        'key1'   => 'value1',
+        'nested' => [
+            'n1' => 123,
+            'n2' => 'nested value 2',
+        ],
+    ];
+
+    Arr::set($array, 'key2', 'value2')
+    Arr::set($array, 'nested.n2', 'new nested value 2')
+
+    // После чего в `$array` будет следующее:
+    $array == [
+        'key1'   => 'value1',
+        'key2'   => 'value2',
+        'nested' => [
+            'n1' => 123,
+            'n2' => 'new nested value 2',
+        ],
+    ];
+```
+
+#### `::remove()`
+> ```php
+> Arr::remove(array &$array, string $dottedKey)
+> ```
+
+Удаляет элемент из массива по ключу с нотацией "через точку".
+
+```php
+    $array = [
+        'key1'   => 'value1',
+        'nested' => [
+            'n1' => 123,
+            'n2' => 'nested value 2',
+        ],
+    ];
+
+    $result = Arr::remove($array, 'nested.n2');
+
+    // После чего в `$result` будет следующее:
+    $result == [
+        'key1' => 'value1',
+        'nested' => [
+            'n1' => 123,
+        ],
+    ]
+```
+
+#### `::only()`
+> ```php
+> Arr::only(array $array, array $keys)
+> ```
+
+Возвращает массив только с теми значениями, ключи которых указаны в $keys.
+```php
+    $array = [
+        'key1' => 'value1',
+        'key2' => 'value2',
+        'key3' => 'value3',
+        'key4' => 'value4',
+    ];
+
+    $result = Arr::only($array, ['key2', 'key4']);
+
+    // После чего в `$result` будет следующее:
+    $result == [
+        'key2' => 'value2',
+        'key4' => 'value4',
+    ]
+```
+
+#### `::contains()`
+> ```php
+> Arr::contains(array $array, mixed $value)
+> ```
+
+Проверяет содержится ли значение в массиве
+```php
+    $array = [
+        'key1' => 'value1',
+        'key2' => 123,
+    ]
+
+    Arr::contains($array, 'key1')   // false
+    Arr::contains($array, 'key2')   // false
+    Arr::contains($array, 'value1') // true
+    Arr::contains($array, 123)      // true
+    Arr::contains($array, 375)      // false
+```
+
 
 File
 ----
