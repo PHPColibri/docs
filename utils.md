@@ -313,6 +313,13 @@ File
 
 Image
 -----
-```php
-    Image::createThumbnail($path, $target_width=100, $target_height=100, $bgColor=0xdddddd)
-```
+Создаёт превью для изображения, сохраняя соотношение сторон.
+> ```php
+> Image::createThumbnail(string $path, int $width = 100, int $height = 100, string $resizeType = self::RESIZE_FILLED, int $bgColor = 0xfff5ee)
+> ```
+
+- `$path` - путь до изображения
+- `$width` - ширина превью (по умолчанию 100)
+- `$height` - высота превью (по умолчанию 100)
+- `$resizeType` - одна из `{ Image::RESIZE_FILLED | Image::RESIZE_CROPPED }` констант. Заполнять образовавшиеся поля с цветом `$bgColor` или обрезать их. (по умолчанию `Image::RESIZE_FILLED`(заполнять))
+- `$bgColor` - цвет для заполнения, если указан `Image::RESIZE_FILLED` (по умолчанию  [0xfff5ee](http://getcolor.ru/#FFF5EE))
