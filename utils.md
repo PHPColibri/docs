@@ -305,8 +305,10 @@ Arr
 
 File
 ----
+Возвращает MIME-Type фала.
 ```php
-    File::getMimeType()
+    File::getMimeType('some-code.php')   // 'text/x-php'
+    File::getMimeType('some-image.jpeg') // 'image/jpeg'
 ```
 
 Image
