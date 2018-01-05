@@ -19,14 +19,21 @@
         routerMode: 'hash',
         subMaxLevel: 2,
         auto2top: true,
+        alias: {
+            '/.*/_navbar.md': '/_navbar.md'
+        },
+        loadNavbar: true,
         search: {
-            placeholder: 'Поиск по документации'
+            placeholder: {
+                '/en/': 'Search',
+                '/': 'Поиск по документации'
+            }
         },
         plugins: [
             function(hook, vm) {
                 hook.beforeEach(function (html) {
                     var url = 'https://github.com/PHPColibri/docs/blob/master/' + vm.route.file;
-                    var editHtml = ':octocat: [Попарвить на GitHub](' + url + ')\n';
+                    var editHtml = ':octocat: [Edit on GitHub](' + url + ')\n';
                     return html
                         + '\n----\n'
                         + editHtml;

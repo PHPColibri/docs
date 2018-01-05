@@ -1,0 +1,3 @@
+- Translations
+  - [Русский](/)
+  - [English](/en/)
