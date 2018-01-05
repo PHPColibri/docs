@@ -1,8 +1,8 @@
 Caching
 =======
 
-- [Configuring](#Configuring)
-- [Functionality](#Functionality)
+- [Configuring](#configuring)
+- [Functionality](#functionality)
 
 > For caching supports all known [Memcached](http://memcached.org/).
 
