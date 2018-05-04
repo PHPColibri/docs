@@ -40,7 +40,7 @@
 #### Отличия
 
 Для всех url-ов,  начинающихся с `/admin`, Colibri будет использовать:
-- backbone.`admin`.php - в качестве layout
+- layout.`admin`.php - в качестве layout
 - /application/modules/\<module_name\>/`admin` - в качестве базовой папки для расположения контроллеров, шаблонов, js/css кода и ресурсов (картинок).
 
 

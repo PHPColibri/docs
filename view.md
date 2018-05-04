@@ -10,7 +10,7 @@
 
 Каркас / Layout
 ---------------
-application/templates/`backbone[.<division>].php`
+application/templates/`layout[.<division>].php`
 
 Шаблон
 ------

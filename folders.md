@@ -111,7 +111,7 @@ h_ttp://example.ru`/`path/to/file/in/public/folder :
 ### `views`
 
 Шаблоны общего использования:
-- Каркасы (layout-ы) [разделов](/routing.md#Разделы) (`backbone[.<division_name>].php`)
+- Каркасы (layout-ы) [разделов](/routing.md#Разделы) (`layout[.<division_name>].php`)
 - Шаблоны постраничной навигации (`pager.php`)
 - Шаблоны вывода ошибок (`validation_output.php`)
 - ... и всё, что вы сами тут расположите.
