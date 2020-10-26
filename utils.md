@@ -41,6 +41,12 @@ String
     Str::random('unique')    // string(32) "f6a195bd32d4a195b55eeed7acf4ce9f"
 ```
 
+#### `::randomFrom()`
+Генерирует случайную строку, используя только заданные символы.
+```php
+    Str::randomFrom('0123456789ABCDEF', 6)  // string(6) "4F7DAC"
+```
+
 #### `::generateGUID()`
 Генерирует GUID.
 ```php
@@ -138,6 +144,19 @@ String
     Str::('some string')   // false
     Str::('some string 2') // true
     Str::('some2string')   // true
+```
+
+#### `::cut()`
+Вырезает из строки все вхождения указанной строки.
+```php
+    Str::cut('hello world', 'hello')       // ' world'
+    Str::cut('some, several, words', ',')  // 'some several words'
+```
+
+#### `::build()`
+Вырезает из строки все вхождения указанной строки.
+```php
+    Str::build('{scheme}://{domain}/', ['scheme' => 'http', 'domain' => 'phpcolibri.com']) // 'http://phpcolibri.com/'
 ```
 
 
